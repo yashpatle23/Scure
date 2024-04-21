@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCure</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<style>
+.parent {
+  display: flex;
+}
+
+.child {
+  
+  height: 70px;
+  padding-bottom: 5px;
+}
+#circle ,#circle1,#circle2,#circle3,#circle4,#circle5{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+ 
+}
+
+#circle.green {
+  background-color: green;
+}
+
+#circle.red {
+  background-color: red;
+}
+
+</style>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+  <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>SC</strong>ure </a>
+
+  <nav class="navbar">
+  <a href="index.php">home</a>
+      <a href="about.html">about</a>
+      <div class="dropdown">
+     <a class="services" href="#services">services</a>
+
+      <div class="dropdown-content">
+  <a href="healthcheck.html">Health CheckUp</a>
+  <a href="skin_cancer_js.html">SkinCancer Prediction</a>
+  <a href="health_info.php">Health Status</a>
+    </div>
+    </div>
+      <a href="doctors.html">doctors</a>
+      <!-- <a href="#appointment">appointment</a> -->
+      <div class="dropdown">
+     <a class="services" href="#services">Records</a>
+      <div class="dropdown-content">
+  <a href="info.php">Appointments</a>
+  <a href="submit.php">Health Records</a>
+    </div>
+    </div>
+
+      <a href="blogs.html">blogs</a>
+  </nav>
+
+  <div id="menu-btn" class="fas fa-bars"></div>
+
+</header>
+
+
+
+<!-- appointmenting section starts   -->
+
+<section class="appointment" id="appointment">
+
+  <h1 class="heading"> <span>appointment</span> now </h1>    
+
+  <div  class="row">
+
+      <!-- <div class="image">
+          <img src="image/appointment-img.svg" alt="">
+      </div> -->
+
+      <!-- <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post"> -->
+      <!-- <?php
+          if(isset($message)) {
+              foreach($message as $message) {
+              echo'<p class ="message">'.$message.'</p>';
+          }
+          }
+      ?> -->
+    <form>
+          <h3>Health Check Up</h3>
+          <input type="number"name="Temp" id="temp" placeholder="Temperature(F)" class="box">
+          <div class="parent">
+              <div  class="child"> <input type="submit" onclick="checkValues()" name="submit" value="Submit" class="btn"></div>
+              <div id="circle"  class="child"></div>
+          </div>
+          <input type="number"name="Sugar" id="sugar" placeholder="Sugar Level" class="box">
+          <div class="parent">
+              <div id="child"> <input type="submit" onclick="checksugar()" name="submit" value="Submit" class="btn"></div>
+              <div id="circle1" class="child"></div>
+          </div>
+          
+          <input type="number" name="Bp" id="bp" placeholder="Blood Pressure" class="box">
+          <div class="parent">
+              <div id="child"> <input type="submit" onclick="checkBp()" name="submit" value="Submit" class="btn"></div>
+              <div id="circle2" class="child"></div>
+          </div>
+         
+          <input type="number"name="Pulse" id="pr" placeholder="Pulse Rate" class="box">
+          <div class="parent">
+              <div id="child"> <input type="submit" onclick="checkpulse()" name="submit" value="Submit" class="btn"></div>
+              <div  id="circle3" class="child"></div>
+          </div>
+          
+          <input type="number"name="Resp" id="rpr" placeholder="Respiration Rate" class="box">
+          <div class="parent">
+              <div id="child"> <input type="submit" onclick="checkrpr()" name="submit" value="Submit" class="btn"></div>
+              <div  id="circle4" class="child"></div>
+          </div>
+          
+          <input type="number"name="Cr" id="cr" placeholder="Cholesterol level" class="box">
+          <div class="parent">
+              <div id="child"> <input type="submit" onclick="checkchl()" name="submit" value="Submit" class="btn"></div>
+              <div  id="circle5" class="child"></div>
+          </div>
+          
+      </form>
+
+  </div>
+
+</section>
+
+
+
+<!-- footer section -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="index.html"> <i class="fas fa-chevron-right"></i> home </a>
+          <a href="about.html"> <i class="fas fa-chevron-right"></i> about </a>
+          <!-- <a href="#services"> <i class="fas fa-chevron-right"></i> services </a> -->
+          <a href="doctors.html"> <i class="fas fa-chevron-right"></i> doctors </a>
+          <!-- <a href="#appointment"> <i class="fas fa-chevron-right"></i> appointment </a> -->
+          <!-- <a href="#review"> <i class="fas fa-chevron-right"></i> review </a> -->
+          <a href="blogs.html"> <i class="fas fa-chevron-right"></i> blogs </a>
+      </div>
+
+      <div class="box">
+          <h3>our services</h3>
+          <a href="#"> <i class="fas fa-chevron-right"></i>Skin Cancer Detection </a>
+          <a href="#"> <i class="fas fa-chevron-right"></i> Skin Pimple Detection </a>
+          <a href="#"> <i class="fas fa-chevron-right"></i> Appointment Booking </a>
+          <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+          <!-- <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a> -->
+      </div>
+
+      <div class="box">
+          <h3>appointment info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +91 9356567276 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +91 9356567276 </a>
+          <a href="#"> <i class="fas fa-envelope"></i> priyakriplani950@gmail.com </a>
+          <a href="#"> <i class="fas fa-envelope"></i> bhoyarradhika@gmail.com </a>
+          <a href="#"> <i class="fas fa-map-marker-alt"></i> Nagpur,Maharashtra </a>
+      </div>
+
+      <div class="box">
+          <h3>follow us</h3>
+          <a href="#"> <i class="fab fa-facebook"></i>Facebook</a>
+          <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+          <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+          <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+          <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+      </div>
+
+  </div>
+
+  <div class="credit"> created by <span>Plain Rice</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+<!-- js file link  -->
+<script src="js/script.js"></script>
+<script>
+  function checkValues() {
+    var temp = document.getElementById("temp").value;
+    //var bp = document.getElementById("bp").value;
+    //var pulse = document.getElementById("pulse").value;
+    
+    // Replace these values with the normal ranges for your application
+    var tempMin = 97;
+    var tempMax = 99;
+    var bpMin = 90;
+    var bpMax = 120;
+    var pulseMin = 60;
+    var pulseMax = 100;
+    
+    var circle = document.getElementById("circle");
+    //bp >= bpMin && bp <= bpMax &&
+      //  pulse >= pulseMin && pulse <= pulseMax
+    if (temp >= tempMin && temp <= tempMax
+        ) {
+      circle.style.backgroundColor = "green";
+    } else {
+      circle.style.backgroundColor = "red";
+    }
+  }
+  
+  function checksugar() {
+    var temp = document.getElementById("sugar").value;
+    //var bp = document.getElementById("bp").value;
+    //var pulse = document.getElementById("pulse").value;
+    
+    // Replace these values with the normal ranges for your application
+    var tempMin = 70;
+    var tempMax = 130;
+    
+    
+    var circle = document.getElementById("circle1");
+    //bp >= bpMin && bp <= bpMax &&
+      //  pulse >= pulseMin && pulse <= pulseMax
+    if (temp >= tempMin && temp <= tempMax
+        ) {
+      circle.style.backgroundColor = "green";
+    } else {
+      circle.style.backgroundColor = "red";
+    }
+  }
+
+  function checkBp()
+  {
+    var temp=document.getElementById("bp").value;
+
+    var bpMin=90;
+    var bpMax=120;
+    var circle = document.getElementById("circle2");
+    if(temp>=bpMin && temp<= bpMax)
+    {
+      circle.style.background= "green";
+
+    }
+    else
+    {
+      circle.style.background="red";
+    }
+  }
+  
+  function checkpulse()
+  {
+    var temp=document.getElementById("pr").value;
+
+    var pulseMin = 60;
+    var pulseMax = 100;
+    var circle = document.getElementById("circle3");
+    if(temp>=pulseMin && temp<= pulseMax)
+    {
+      circle.style.background= "green";
+
+    }
+    else
+    {
+      circle.style.background="red";
+    }
+  }
+
+  function checkrpr()
+  {
+    var temp=document.getElementById("rpr").value;
+
+    var rrMin = 12;
+    var rreMax = 30;
+    var circle = document.getElementById("circle4");
+    if(temp>=rrMin && temp<= rrMax)
+    {
+      circle.style.background= "green";
+
+    }
+    else
+    {
+      circle.style.background="red";
+    }
+  }
+
+  function checkchl()
+  {
+    var temp=document.getElementById("cr").value;
+
+    var crMin = 125;
+    var crMax = 200;
+    var circle = document.getElementById("circle5");
+    if(temp>=crMin && temp<= crMax)
+    {
+      circle.style.background= "green";
+
+    }
+    else
+    {
+      circle.style.background="red";
+    }
+  }
+</script>
+</body>
+</html>

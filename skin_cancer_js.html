@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCure</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+   
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  </head>
+  <style>
+    .icons-container
+    {
+      padding-top: 100px;
+    }
+  </style>
+  <body>
+
+
+    <header class="header">
+
+      <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> <strong>SC</strong>ure </a>
+  
+      <nav class="navbar">
+      <a href="index.php">home</a>
+          <a href="about.html">about</a>
+          <div class="dropdown">
+         <a class="services" href="#services">services</a>
+  
+          <div class="dropdown-content">
+      <a href="healthcheck.html">Health CheckUp</a>
+      <a href="skin_cancer_js.html">SkinCancer Prediction</a>
+      <a href="health_info.php">Health Status</a>
+        </div>
+        </div>
+          <a href="doctors.html">doctors</a>
+          <!-- <a href="#appointment">appointment</a> -->
+          <div class="dropdown">
+         <a class="services" href="#services">Records</a>
+          <div class="dropdown-content">
+      <a href="info.php">Appointments</a>
+      <a href="submit.php">Health Records</a>
+        </div>
+        </div>
+  
+          <a href="blogs.html">blogs</a>
+      </nav>
+  
+      <div id="menu-btn" class="fas fa-bars"></div>
+  
+  </header>
+
+<!-- header section ends -->
+
+
+<!-- icons section starts  -->
+
+<section class="icons-container">
+ 
+    <div class="icons">
+        <!-- <i class="fas fa-user-md"></i> -->
+        <h3>Step 1:</h3>
+        <p>Chose an Image</p>
+    </div>
+
+    <div class="icons">
+        <!-- <i class="fas fa-users"></i> -->
+        <h3>Step 2:</h3>
+        <p>Click Predict</p>
+    </div>
+
+    <div class="icons">
+        <!-- <i class="fas fa-procedures"></i> -->
+        <h3>Output:</h3>
+        <p>Cancer name</p>
+    </div>
+
+    <!-- <div class="icons">
+        <i class="fas fa-hospital"></i>
+        <h3>10+</h3>
+        <p>Skin diseases Detection</p>
+    </div> -->
+
+</section>
+
+<!-- icons section ends -->
+
+<section class="appointment" id="appointment">
+
+  <h1 class="heading"> Skin <span> Cancer Prediction</span> </h1>
+
+  <div  class="row">
+
+      <!-- <div class="image">
+          <img src="image/appointment-img.svg" alt="">
+      </div> -->
+
+      <!-- <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post"> -->
+      <!-- <?php
+          if(isset($message)) {
+              foreach($message as $message) {
+              echo'<p class ="message">'.$message.'</p>';
+          }
+          }
+      ?> -->
+    <form>
+          
+          <input  type="file" accept="image/*" onchange="previewImage(event);" class="box">
+          <div>
+      <img id="image-preview" src="" alt="Selected Image" style="max-width: 400px; max-height: 400px;">
+    </div>
+          <div class="parent">
+              <div  class="child">
+               <input type="button" onclick="predictImage()" name="Submit" value="Predict" class="btn">
+             </div>
+              
+          </div>
+          <div id="label-container"></div>
+          
+          
+      </form>
+
+  </div>
+
+</section>
+
+
+<!-- <section> 
+<div class="skin">
+<h1 class="heading"> Skin <span> Cancer Prediction</span> </h1>
+    
+        <h3 style="font-size: 20px;">Select an image to upload and get prediction:</h3>
+    <input type="file" accept="image/*" onchange="previewImage(event);">
+    <div>
+      <img id="image-preview" src="" alt="Selected Image" style="max-width: 200px; max-height: 200px;">
+    </div>
+    <div>
+      <button type="button" onclick="predictImage()">Predict</button>
+    </div>
+    <div id="label-container"></div>
+    
+</div>
+</section> -->
+    <!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="index.html"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="about.html"> <i class="fas fa-chevron-right"></i> about </a>
+            <!-- <a href="#services"> <i class="fas fa-chevron-right"></i> services </a> -->
+            <a href="doctors.html"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <!-- <a href="#appointment"> <i class="fas fa-chevron-right"></i> appointment </a> -->
+            <!-- <a href="#review"> <i class="fas fa-chevron-right"></i> review </a> -->
+            <a href="blogs.html"> <i class="fas fa-chevron-right"></i> blogs </a>
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#"> <i class="fas fa-chevron-right"></i>Skin Cancer Detection </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Skin Pimple Detection </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> Appointment Booking </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> diagnosis </a>
+            <!-- <a href="#"> <i class="fas fa-chevron-right"></i> ambulance service </a> -->
+        </div>
+
+        <div class="box">
+            <h3>appointment info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +91 9356567276 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +91 9356567276 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Priya Kriplani</a>
+            <a href="#"> <i class="fas fa-envelope"></i> Yash Patle</a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Nagpur,Maharashtra </a>
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook"></i>Facebook</a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> created by <span>Plain Rice</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+<!-- js file link  -->
+<script type="text/javascript">
+      const URL = "https://teachablemachine.withgoogle.com/models/4b8WlM6oL/";
+
+      let model, labelContainer, maxPredictions;
+
+      async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          labelContainer.appendChild(document.createElement("div"));
+        }
+      }
+
+      async function predictImage() {
+        const image = document.getElementById("image-preview");
+        const prediction = await model.predict(image);
+        for (let i = 0; i < maxPredictions; i++) {
+          if(prediction[i].probability.toFixed(2)>0) {const classPrediction = prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+          labelContainer.childNodes[i].innerHTML = classPrediction;}
+        }
+      }
+
+      function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+          const imagePreview = document.getElementById("image-preview");
+          imagePreview.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+
+      init();
+    </script>
+<script src="js/script.js"></script>
+  </body>
+</html>
